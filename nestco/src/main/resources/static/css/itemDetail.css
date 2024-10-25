@@ -1,0 +1,197 @@
+/* 기본 폰트와 배경 설정 */
+body {
+    font-family: 'Noto Sans', sans-serif;
+    background-color: #efe7da;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* 전체 컨테이너 스타일 */
+.item-detail-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* 찜하기 및 신고하기 버튼 */
+.carousel-overlay {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.carousel-wishlist,
+.carousel-report {
+    z-index: 10;
+    padding: 8px 15px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carousel-wishlist i,
+.carousel-report i {
+    margin-right: 5px;
+}
+
+.carousel-wishlist:hover,
+.carousel-report:hover {
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* 이미지 슬라이더 섹션 */
+#itemCarousel {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.carousel-inner {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    overflow: hidden;
+    height:700px;
+}
+
+.carousel-item img {
+    max-height: 700px;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 화살표 스타일 */
+.carousel-control-prev, .carousel-control-next {
+    width: 50px;
+    height: 50px;
+    top: auto;
+    bottom: 50%;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.carousel-control-prev:hover, .carousel-control-next:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* 업로더 정보 */
+.uploader-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #777;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.uploader-name {
+    font-weight: bold;
+}
+
+.uploader-location {
+    color: #555;
+}
+
+/* 아이템 정보 섹션 */
+.item-info-section {
+    width: 100%;
+    text-align: left;
+}
+
+.item-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.item-meta-info {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.item-meta-info p {
+    margin-left: 20px;
+}
+
+.item-content {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.item-meta {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 18px;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.item-meta p {
+    margin-left: 20px;
+}
+
+/* 교환 신청 버튼 */
+.exchange-btn {
+    display: block;
+    width: 100%;
+    padding: 18px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #5D4037;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.exchange-btn:hover {
+    background-color: #4c7263;
+}
+
+/* 화면이 작을 때 반응형 처리 */
+@media screen and (max-width: 768px) {
+    .item-detail-container {
+        padding: 20px;
+    }
+
+    .item-title {
+        font-size: 26px;
+    }
+
+    .item-category, .item-createDate, .item-hits, .item-content {
+        font-size: 16px;
+    }
+
+    .exchange-btn {
+        font-size: 18px;
+    }
+}

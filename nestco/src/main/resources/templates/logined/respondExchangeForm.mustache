@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>교환 요청 응답 폼</title>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <script src="/js/socket.js"></script>
+</head>
+<body>
+<h1>{{requesterNickname}}님이{{uploaderItem}}을(를) 교환 요청했습니다 </h1>
+
+<p>요청자가 제시한 교환 물품: {{exchangeItem}}</p>
+<p>교환 요청 메시지: {{exchangeRequest.message}}</p>
+
+<!-- 응답 버튼 -->
+<form action="/respondToExchangeRequest" method="post">
+    <input type="hidden" name="requestId" value="{{exchangeRequest.id}}">
+    <button type="submit" name="accept" value="true">교환 수락</button>
+    <button type="submit" name="accept" value="false">교환 거절</button>
+</form>
+
+<form id="transactionStatusForm" style="display: none;">
+    <h2>거래 상태 선택</h2>
+    <button onclick="updateTransactionStatus(transactionId, true)">거래 완료</button>
+    <button onclick="updateTransactionStatus(transactionId, false)">거래 미완료</button>
+</form>
+
+<div id="chatWindow" style="display: none;">
+    <h2>채팅창</h2>
+    <div id="messages"></div>
+    <input id="messageInput" type="text" placeholder="메시지 입력">
+    <button onclick="sendMessage()">메시지 보내기</button>
+</div>
+</body>
+</html>

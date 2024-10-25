@@ -1,0 +1,125 @@
+/* 전체 페이지 설정 */
+body {
+    background-color: #4A2C2A; /* White Chocolate */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #EFE7DA;
+}
+
+/* 컨테이너 설정 */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 공지사항 제목 */
+.title {
+    color: #EFE7DA;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* 공지사항 테이블 */
+.board-container {
+    background-color: #4C7263; /* Hooker Green */
+    padding: 0;
+    border-radius: 8px;
+    border: 1px solid #EFE7DA; /* 외곽 테두리 */
+    overflow: hidden;
+}
+
+/* 제목 행 스타일 */
+.board-container .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    border-bottom: 2px solid #EFE7DA; /* 가로줄 */
+    padding: 10px;
+    text-align: center;
+}
+
+/* 내용 행 스타일 */
+.board-container .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #EFE7DA; /* 가로줄 */
+    text-align: center;
+}
+
+/* 마지막 행의 테두리 제거 */
+.board-container .content:last-child {
+    border-bottom: none;
+}
+
+/* 열 비율 설정 */
+.board-container .title p,
+.board-container .content p {
+    flex: 1;
+    margin: 0;
+    padding: 5px;
+    text-align: center;
+}
+
+/* 링크 스타일 */
+.board-container a {
+    color: #EFE7DA;
+    text-decoration: none;
+    font-weight: 900;
+}
+
+.board-container a:hover {
+    text-decoration: underline;
+}
+
+/* 페이지네이션 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination .page-item {
+    margin: 0 5px;
+}
+
+.pagination .page-item .page-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #EFE7DA;
+    border: none;
+    background-color: transparent;
+    padding: 8px 12px;
+}
+
+/* 버튼 그룹 스타일 - 왼쪽 정렬 및 여백 조정 */
+.button-group {
+    display: flex;
+    justify-content: flex-start; /* 왼쪽 정렬 */
+    align-items: center;
+    width: 100%; /* 그룹의 전체 너비 */
+    margin-left: 10px;
+    margin-top: 30px; /* 위쪽 여백 */
+}
+
+/* 뒤로가기 버튼 스타일 */
+.button-group .btn {
+    padding: 12px 24px;
+    color: #EFE7DA;
+    background-color: #4C7263; /* Hooker Green */
+    font-size: 15px;
+    transition: background-color 0.3s ease; /* 호버 애니메이션 */
+}
+
+/* 호버 시 버튼 색상 변화 */
+.button-group .btn:hover {
+    cursor: pointer;
+    background-color: #3B5C54; /* 약간 어두운 색으로 변경 */
+}

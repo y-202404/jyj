@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/itemDetail.css">
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script defer src="/js/items.js"></script>
+
+    <title>itemDetail</title>
+</head>
+{{>layouts/header}}
+<body>
+<div class="item-detail-container">
+    <div id="itemCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-overlay">
+            <!-- 찜하기 버튼 -->
+            <button class="btn btn-outline-danger btn-sm ml-2 carousel-wishlist" onclick="saveLike({{item.id}})">
+                <i class="fas fa-heart"></i> 찜하기
+            </button>
+            <!-- 신고 버튼 -->
+            <button id="declaration-btn" class="btn btn-outline-secondary btn-sm carousel-report" onclick="declaration()">
+                <i class="fas fa-flag"></i> 신고하기
+            </button>
+        </div>
+        <div class="carousel-inner">
+            {{#imagePaths}}
+            <div class="carousel-item {{#isFirst}}active{{/isFirst}}">
+                <img src="{{imagePath}}" alt="상품 이미지" class="d-block w-100">
+            </div>
+            {{/imagePaths}}
+        </div>
+        <a class="carousel-control-prev" href="#itemCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#itemCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <div class="item-info-section">
+        <hr>
+        <div class="uploader-info">
+            <p id="uploader-name" class="uploader-name">{{item.uploader.nickname}}</p>
+            <p class="uploader-location">{{item.uploader.address}}</p>
+        </div>
+        <h1 class="item-title">{{item.title}}</h1>
+        <div class="item-meta-info">
+            <p class="item-category">{{item.category.name}}</p>
+            <p class="item-createDate">{{item.TimeSincePosted}} 시간 전 </p>
+        </div>
+        <p class="item-content">{{item.content}}</p>
+        <div class="item-meta">
+            <p class="item-hits">조회수: {{item.boardHits}}</p>
+        </div>
+        <button class="exchange-btn" data-toggle="modal" data-item-id="{{item.id}}" data-target="#exchangeRequestModal">교 환 신 청</button>
+    </div>
+
+</div>
+
+<!-- 교환 신청 모달 -->
+<div class="modal fade" id="exchangeRequestModal" tabindex="-1" aria-labelledby="exchangeRequestModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exchangeRequestModalLabel">교환 신청</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="exchangeRequestForm" action="/submitExchangeRequest" method="post">
+                <div class="modal-body">
+                    <input type="hidden" id="uploaderItemId" name="uploaderItemId" value="{{item.id}}">
+                    <label for="exchangeItem">내 아이템 선택</label>
+                    <select name="exchangeItemId" id="exchangeItemId" class="form-control">
+                        {{#myItems}}
+                            <option value="{{id}}">{{itemName}}</option>
+                        {{/myItems}}
+                    </select>
+                    <label for="message" class="mt-3">메시지</label>
+                    <textarea name="message" id="message" class="form-control"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">교환 신청</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+{{>layouts/footer}}
+</html>

@@ -1,0 +1,45 @@
+{{>layouts/header}}
+<title>1:1문의</title>
+<link rel="stylesheet" href="/css/userOneOnOne.css">
+
+<div class="container mt-5 service-center">
+    <h1 class="text-center mb-4 title">1:1문의</h1>
+
+    <!-- 구분선 -->
+    <hr class="divider">
+    <br>
+
+    <section class="one-on-one-section">
+        <form id="oneOnOneForm" action="/nestco/oneOneOnCreate" method="POST" class="text-center" onsubmit="submitForm(event)">
+            <div class="form-group mb-3">
+                <select name="type" required class="form-control limited-width compact-select">
+                    <option value="purchase">구매문의</option>
+                    <option value="sale">판매문의</option>
+                </select>
+            </div>
+
+            <div class="form-group mb-3">
+                <textarea name="content" class="form-control limited-width expanded-textarea"
+                          placeholder="문의 내용을 입력하세요" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">문의하기</button>
+        </form>
+
+        <div class="button-group mt-4">
+            <button class="btn btn-outline-light" onclick="location.href='/nestco/centerpage'">
+                뒤로가기
+            </button>
+        </div>
+    </section>
+
+    <br>
+
+    <!-- 구분선 -->
+    <hr class="divider">
+</div>
+
+<!-- JavaScript -->
+<script src="/js/oneOnOne.js"></script>
+
+{{>layouts/footer}}

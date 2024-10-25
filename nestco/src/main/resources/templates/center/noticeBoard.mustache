@@ -1,0 +1,82 @@
+
+{{>layouts/header}}
+<title>공지사항</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/userNotice.css">
+
+<div class="container mt-5 service-center">
+    <h1 class="text-center mb-4 title">공지사항</h1>
+
+    <div class="board-container">
+        <div class="title">
+            <p>번호</p>
+            <p>제목</p>
+            <p>작성자</p>
+            <p>작성일</p>
+            <p>조회수</p>
+        </div>
+
+        {{#notices.content}}
+            <div class="content">
+                <p>{{id}}</p>
+                <p><a class="boxTitle" href="/nestco/noticeboard/{{id}}">{{title}}</a></p>
+                <p>{{uploader.nickname}}</p>
+                <p>{{createDate}}</p>
+                <p>{{readCount}}</p>
+            </div>
+        {{/notices.content}}
+    </div>
+
+    <div class="box">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                {{#hasPrev}}
+                    <li class="page-item">
+                        <a class="page-link" href="/nestco/noticeboard?page={{firstPage}}" aria-label="First">
+                        <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                {{/hasPrev}}
+
+                {{#hasPrev}}
+                    <li class="page-item">
+                        <a class="page-link" href="/nestco/noticeboard?page={{prev}}" aria-label="Previous">
+                        <span aria-hidden="true">&lt;</span>
+                        </a>
+                    </li>
+                {{/hasPrev}}
+
+                {{#pageNumbers}}
+                    <li class="page-item">
+                        <a class="page-link" href="/nestco/noticeboard?page={{.}}">{{.}}</a>
+                    </li>
+                {{/pageNumbers}}
+
+                {{#hasNext}}
+                    <li class="page-item">
+                        <a class="page-link" href="/nestco/noticeboard?page={{next}}" aria-label="Next">
+                        <span aria-hidden="true">&gt;</span>
+                        </a>
+                    </li>
+                {{/hasNext}}
+
+                {{#hasNext}}
+                    <li class="page-item">
+                        <a class="page-link" href="/nestco/noticeboard?page={{lastPage}}" aria-label="Last">
+                        <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                {{/hasNext}}
+            </ul>
+        </nav>
+        <div class="button-group text-center mt-4">
+            <button class="btn btn-outline-light" onclick="location.href='/nestco/centerpage'">
+                뒤로가기
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<br>
+{{>layouts/footer}}

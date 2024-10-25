@@ -1,0 +1,37 @@
+
+{{>layouts/header}}
+<title>이벤트 참여</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/event.css">
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script defer src="/js/event.js"></script>
+
+<body>
+<div class="container text-center mt-5">
+    <h1>이벤트 참여하기</h1>
+    <h3>무선 이어폰 2명</h3>
+
+    <!-- 구분선 -->
+    <hr class="divider">
+
+    <div>
+    <img src="/images/event.jpg" alt="이벤트 이미지" class="event-image">
+    </div>
+    <br>
+    <button id="eventButton" class="btn btn-primary" onclick="newContainer()">
+        클릭하여 참여하기
+    </button>
+    <button class="btn btn-primary" onclick="location.href='/nestco/centerpage'">
+        뒤로가기
+    </button>
+</div>
+
+<div>
+    <br>
+    <h4 class="introduce">당첨자는 2025-01-01 에 발표합니다</h4>
+</div>
+
+<br>
+
+{{>layouts/footer}}

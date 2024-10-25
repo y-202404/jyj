@@ -1,0 +1,22 @@
+{{>layouts/header}}
+<link rel="stylesheet" href="/css/boardForm.css">
+
+<main>
+    <div class="container">
+        <h1>게시글 등록하기</h1>
+        <div class="form-box">
+            <form class="form-box" action="/nestco/newBoard/create" method="post">
+                <div class="title">
+                    <h1>제목</h1>
+                    <input class="first" type="text" name="title">
+                </div>
+                <div class="content">
+                    <h1>내용</h1>
+                    <textarea class="second" name="content"></textarea>
+                </div>
+                <button class="registration-btn" type="submit">등록하기</button>
+            </form>
+        </div>
+    </div>
+</main>
+{{>layouts/footer}}

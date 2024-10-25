@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "express": "^4.21.1",
+    "socket.io": "^4.8.0",
+    "soket.io": "^0.0.1-security"
+  },
+  "name": "nestco",
+  "version": "1.0.0",
+  "description": "https://www.figma.com/design/gyTK18yEAKDpr3FSzd5fIw/%EC%8B%A4%EC%8A%B51?node-id=2-3&t=YbNyxYZ5O7OgjcdW-1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

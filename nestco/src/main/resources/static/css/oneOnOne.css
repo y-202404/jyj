@@ -1,0 +1,52 @@
+form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto; /* 가운데 정렬 */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"], select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+textarea {
+    height: 150px;
+    resize: none; /* 사용자가 크기를 조절하지 못하도록 고정 */
+}
+
+button {
+    width: 100%;
+    background-color: #4C7263;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* 호버 시 버튼 색상 변화 */
+.button-group .btn:hover {
+    cursor: pointer;
+    background-color: #3B5C54; /* 약간 어두운 색으로 변경 */
+}
+
+
+
+label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+input:invalid {
+    border-color: red;
+}

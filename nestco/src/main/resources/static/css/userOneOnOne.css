@@ -1,0 +1,107 @@
+/* Global Styles */
+body {
+    background-color: #4A2C2A;
+    color: #EFE7DA;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Title and Header */
+.title {
+    color: #EFE7DA;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-align: center; /* 제목 중앙 정렬 */
+}
+
+/* Service Center Container */
+.service-center {
+    background-color: #4A2C2A;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Form Section 중앙 정렬 */
+.one-on-one-section {
+    background-color: #EFE7DA;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+}
+
+/* Form Styles */
+form {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form .form-group {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+/* 문의 내용 텍스트 필드 확장 */
+.expanded-textarea {
+    width: 100%;
+    height: 300px;
+    padding: 10px;
+    border: 1px solid #4A2C2A;
+    border-radius: 5px;
+}
+
+/* 더 컴팩트한 드롭다운 */
+.compact-select {
+    height: 35px;
+    padding: 5px;
+    width: 100%;
+}
+
+/* Button Styles */
+form button {
+    background-color: #4C7263;
+    color: #EFE7DA;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 150px;
+    text-align: center;
+    align-self: center;
+}
+
+form button:hover {
+    background-color: #3B5C54;
+}
+
+/* 버튼 그룹 스타일 - 왼쪽 정렬 */
+.button-group {
+    display: flex;
+    justify-content: flex-start; /* 왼쪽 정렬 */
+    width: 100%; /* 버튼 그룹의 전체 너비 */
+}
+
+.button-group .btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    color: #EFE7DA;
+    background-color: #4C7263;
+    margin-left: 0;
+    box-shadow: none; /* 그림자 제거 */
+    border: none; /* 테두리가 필요 없으면 제거 */
+}
+
+/* 호버 시 버튼 색상 변화 */
+.button-group .btn:hover {
+    cursor: pointer;
+    background-color: #3B5C54; /* 약간 어두운 색으로 변경 */
+}
+

@@ -1,0 +1,32 @@
+{{>layouts/header}}
+<link rel="stylesheet" href="/css/boardShow.css">
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script defer src="/js/boardShow.js"></script>
+{{#board}}
+<main>
+    <div class="container">
+        <div class="board-box">
+            <div class="title">
+                <div class="title-menu">
+                    <h1>제목:</h1>
+                    <h1>{{title}}</h1>
+                </div>
+                <div class="writer-menu">
+                    <h1>작성자:</h1>
+                    <h1 id="nickname">{{uploader.nickname}}</h1>
+                </div>
+            </div>
+            <div class="content">
+                <p>{{content}}</p>
+            </div>
+        </div>
+        <div class="buttons">
+            <button class="board-btn" onclick="boardMenu()">목록으로</button>
+            <button class="edit-btn" onclick="boardEdit()">수정</button>
+            <button class="delete-btn" onclick="boardDelete()">삭제</button>
+            <input id="boardId" type="hidden" value="{{id}}">
+        </div>
+    </div>
+</main>
+{{/board}}
+{{>layouts/footer}}

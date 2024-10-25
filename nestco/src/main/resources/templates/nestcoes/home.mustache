@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css">
+    <script src="https://kit.fontawesome.com/12d13cde63.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/home.css">
+    <title>Nestco</title>
+</head>
+
+<body>
+{{>layouts/header}}
+<div class="main-container">
+
+    <!-- 필터 섹션 -->
+    <div class="filter-container">
+        <form id="filter-form">
+            <!-- 등록일 순 필터 -->
+            <div class="filter-group">
+                <label for="sortOrder">정렬 기준</label>
+                <select id="sortOrder" name="sortOrder">
+                    <option value="latest" {{#isLatest}}selected{{/isLatest}}>최신 등록순</option>
+                    <option value="oldest" {{#isOldest}}selected{{/isOldest}}>오래된 순</option>
+                </select>
+            </div>
+
+            <!-- 거래 상태 필터 -->
+            <div class="filter-group">
+                <label for="status">거래 상태</label>
+                <select id="status" name="status">
+                    <option value="all">전체</option>
+                    <option value="available" {{#isAvailable}}selected{{/isAvailable}}>거래 가능</option>
+                    <option value="sold" {{#isSold}}selected{{/isSold}}>거래 완료</option>
+                </select>
+            </div>
+
+            <!-- 지역 필터 -->
+            <div class="filter-group">
+                <label for="location">지역</label>
+                <select id="location" name="location">
+                    <option value="all">전체 지역</option>
+                    <option value="서울" {{#isSeoul}}selected{{/isSeoul}}>서울</option>
+                    <option value="부산" {{#isBusan}}selected{{/isBusan}}>부산</option>
+                    <option value="인천" {{#isIncheon}}selected{{/isIncheon}}>인천</option>
+                    <option value="대구" {{#isDaegu}}selected{{/isDaegu}}>대구</option>
+                    <option value="대전" {{#isDaejeon}}selected{{/isDaejeon}}>대전</option>
+                    <option value="광주" {{#isGwangju}}selected{{/isGwangju}}>광주</option>
+                    <option value="울산" {{#isUlsan}}selected{{/isUlsan}}>울산</option>
+                    <option value="세종" {{#isSejong}}selected{{/isSejong}}>세종</option>
+                    <option value="경기" {{#isGyeonggi}}selected{{/isGyeonggi}}>경기</option>
+                    <option value="강원" {{#isGangwon}}selected{{/isGangwon}}>강원</option>
+                    <option value="충북" {{#isChungbuk}}selected{{/isChungbuk}}>충북</option>
+                    <option value="충남" {{#isChungnam}}selected{{/isChungnam}}>충남</option>
+                    <option value="전북" {{#isJeonbuk}}selected{{/isJeonbuk}}>전북</option>
+                    <option value="전남" {{#isJeonnam}}selected{{/isJeonnam}}>전남</option>
+                    <option value="경북" {{#isGyeongbuk}}selected{{/isGyeongbuk}}>경북</option>
+                    <option value="경남" {{#isGyeongnam}}selected{{/isGyeongnam}}>경남</option>
+                    <option value="제주" {{#isJeju}}selected{{/isJeju}}>제주</option>
+                </select>
+            </div>
+            <button type="submit">필터 적용</button>
+        </form>
+    </div>
+
+    <!-- 상품 리스트 -->
+    <div class="item-container">
+        {{#items}}
+            <div class="item-card">
+                <a href="/items/{{id}}" class="detail-link">
+                    <div class="item-image-container">
+                    <img src="{{imagePath}}" alt="상품 이미지" class="item-image">
+                    </div>
+                    <div class="item-details">
+                        <h3>{{title}}</h3>
+                        <p>{{content}}</p>
+                        <p>{{timeSincePosted}}</p>
+                    </div>
+                </a>
+            </div>
+        {{/items}}
+    </div>
+    <!-- 페이지네이션 -->
+    <div class="pagination">
+        {{#hasPreviousPage}}
+            <a href="?page={{previousPage}}&searchQuery={{searchQuery}}&sortOrder={{sortOrder}}&status={{status}}&location={{location}}">이전</a>
+        {{/hasPreviousPage}}
+
+        {{#hasNextPage}}
+            <a href="?page={{nextPage}}&searchQuery={{searchQuery}}&sortOrder={{sortOrder}}&status={{status}}&location={{location}}">다음</a>
+        {{/hasNextPage}}
+    </div>
+</div>
+{{>layouts/footer}}
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+/* 기본 페이지 스타일 */
+body {
+    background-color: #4A2C2A; /* White Chocolate 배경 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 20px; /* 모바일 환경에서 여백 확보 */
+}
+
+/* 폼 컨테이너 스타일 */
+.form-container {
+    background-color: #EFE7DA; /* Hooker Green 배경 */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 600px; /* 최대 너비를 600px로 확장 */
+}
+
+/* 폼 제목 스타일 */
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #4A2C2A;
+    font-size: 28px; /* 제목 크기 증가 */
+}
+
+/* 버튼 스타일 */
+.btn-custom {
+    background-color: #4C7263; /* Hooker Green 버튼 */
+    color: #EFE7DA;
+    border: none;
+    padding: 15px;
+    font-size: 18px; /* 버튼 폰트 크기 증가 */
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%; /* 버튼 너비 확장 */
+    transition: background-color 0.3s;
+}
+
+.btn-custom:hover {
+    background-color: #3A5A4E;
+}
+
+/* 입력 필드 스타일 */
+input[type="text"], textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px; /* 폰트 크기 증가 */
+}
+
+textarea {
+    height: 200px; /* 텍스트 영역 높이 증가 */
+    resize: none; /* 사용자가 크기를 조절하지 못하도록 고정 */
+}

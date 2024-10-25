@@ -1,0 +1,65 @@
+{{>layouts/header}}
+<link rel="stylesheet" href="/css/myPageForm.css">
+<!-- 다음 우편번호 서비스 스크립트 -->
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-12">
+            <div class="card mt-5">
+                <h4 class="text-left title">{{username}}님! 정보를 입력하여 회원가입을 완료하세요!</h4>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <input type="hidden" id="userId" value="{{email}}">
+                        <input type="hidden" id="userPassword" value="null">
+                        <input type="hidden" id="userName" value="{{username}}">
+                        <input type="hidden" id="provider" value="{{provider}}">
+                        <label class="form-label" for="nickName">나의 별명</label>
+                        <input type="text" id="nickName" class="form-control" name="nickName" placeholder="닉네임을 입력해 주세요." required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="phoneNumber">전화번호</label>
+                        <input type="text" id="phoneNumber" class="form-control" name="phoneNumber" placeholder="전화번호를 입력해 주세요." required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="email">이메일</label>
+                        <input type="text" id="email" class="form-control" name="email" placeholder="이메일을 입력해 주세요." required>
+                    </div>
+
+                    <!--                        //            이름-username, 별명-nickname, 전화번호-phoneumber, 이메일-email -->
+                    <!--                        //            우편주소-postaladdress, 주소-address, 세부주소-detailedaddress -->
+
+                    <div class="mb-3">
+                        <input class="form-control inline" type="text" id="sample6_postcode" name="postalAddress" placeholder="우편번호" readonly required>
+                        <input class="btn btn-primary" onclick="sample6_execDaumPostcode()" value="주소 검색"><br>
+                        <input class="form-control inline" type="text" id="sample6_address" name="address" placeholder="주소" readonly required><br>
+                        <input class="form-control inline" type="text" id="sample6_detailAddress" name="detailedAddress" placeholder="상세주소" required>
+                        <!--                            참고 항목은 필요 없어서 하이드 -->
+                        <input type="hidden" id="sample6_extraAddress" placeholder="참고항목">
+                    </div>
+                    <button class="btn btn-primary" id="social_join">회원가입 신청</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-12">
+            <div class="card mt-5" style="height: 334px;">
+                <div class="card-body inputImg" id="profileImg">
+                    <img
+                            style="object-fit: cover; width: 100%; height: auto; max-height: 100%;"
+                            alt="프로필 사진"
+                            src="/images/NestCoWhite.svg"
+                    >
+                    <input type="file" id="image_input" accept="image/*" style="display: none;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 자바 스크립트를 작성한 외부파일 참조 -->
+<script src="/js/mypage.js" defer></script>
+{{>layouts/footer}}
+<!--src="./images/NestCoWhite.svg"-->

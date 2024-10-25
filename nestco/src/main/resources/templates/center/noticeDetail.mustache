@@ -1,0 +1,29 @@
+
+
+{{>layouts/header}}
+<title>공지사항 상세보기</title>
+<link rel="stylesheet" href="/css/noticeDetail.css">
+
+{{#notice}}
+    <div class="container mt-5 service-center">
+        <h1 class="text-center mb-4 title">{{title}}</h1>
+
+        <div class="notice-info">
+            <p><strong>작성자:</strong> {{uploader.nickname}}</p>
+            <p><strong>작성일:</strong> {{createDate}}</p>
+            <p><strong>조회수:</strong> {{readCount}}</p>
+        </div>
+
+        <div class="notice-content">
+            <pre>{{content}}</pre> <!-- 내용이 잘 정렬되도록 pre 태그 사용 -->
+        </div>
+
+        <div class="button-group text-center mt-4">
+            <button class="btn btn-outline-light" onclick="location.href='/nestco/noticeboard'">
+                뒤로가기
+            </button>
+        </div>
+    </div>
+{{/notice}}
+
+{{>layouts/footer}}

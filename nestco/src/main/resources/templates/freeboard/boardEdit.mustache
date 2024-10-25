@@ -1,0 +1,28 @@
+{{>layouts/header}}
+<link rel="stylesheet" href="/css/boardEdit.css">
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+{{#board}}
+    <main>
+        <div class="container">
+            <form action="/nestco/edit/{{id}}" method="post">
+                <div class="board-box">
+                    <div class="title">
+                        <div class="title-menu">
+                            <h1>제목:</h1>
+                            <input type="text" name="title" value="{{title}}">
+                        </div>
+                        <div class="writer-menu">
+                            <h1>작성자:</h1>
+                            <h1 id="nickname">{{uploader.nickname}}</h1>
+                        </div>
+                    </div>
+                    <textarea class="content" name="content">{{content}}</textarea>
+                </div>
+                <div class="buttons">
+                    <button class="edit-btn" type="submit">수정</button>
+                </div>
+            </form>
+        </div>
+    </main>
+{{/board}}
+{{>layouts/footer}}
